@@ -36,12 +36,6 @@ export class AppComponent {
       availableUnits: 1,
       wifi: false,
       laundry: false,
-    }
+    },
   ];
-
-  selectedLocation: HousingLocation | undefined;// = this.housingLocationList[0];
-
-  updateSelectedLocation(location: HousingLocation) {
-    this.selectedLocation = location;
-  }
 }
