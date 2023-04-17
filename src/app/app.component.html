@@ -3,7 +3,18 @@
     <img src="../assets/logo.svg" alt="Fairhouse">
     Fairhouse
     <section>
-      <app-housing-list></app-housing-list>
+      <app-housing-list [locationList]="housingLocationList" (selectedLocationEvent)="updateSelectedLocation($event)"></app-housing-list>
     </section>
+    <article>
+      <ng-container *ngIf="selectedLocation">
+        <!-- ? is the 'optional chaining operator' prevents the app from crashing if theres no value -->
+        <img [src]="selectedLocation?.photo">
+        <p> {{selectedLocation?.name}} </p>
+        <p> {{selectedLocation?.availableUnits}} </p>
+        <p> {{selectedLocation?.city}}, {{selectedLocation?.state}} </p>
+        <p> {{selectedLocation?.laundry ? "Has laundry" : "Does Not have laundry"}} </p>
+        <p> {{selectedLocation?.wifi ? "Has Wi-Fi" : "Does Not have Wi-Fi"}} </p>
+      </ng-container>
+    </article>
   </header>
 </main>
